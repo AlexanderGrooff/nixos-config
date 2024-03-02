@@ -21,7 +21,7 @@
       specialArgs = { inherit inputs; };
       modules = [
         # Include the results of the hardware scan.
-        ./hosts/vm2/hardware-configuration.nix
+        ./hosts/vm2
 
         ./boot.nix
         ./desktop.nix

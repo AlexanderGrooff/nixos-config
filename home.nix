@@ -48,7 +48,6 @@
     mtr
     ncdu
     neofetch
-    neovim
     nix-direnv
     nix-output-monitor
     nmap
@@ -74,7 +73,7 @@
 
   programs.zsh = {
     enable = true;
-    initExtra = builtins.readFile ./.zshrc;
+    initExtra = builtins.readFile ./dotfiles/.zshrc;
     oh-my-zsh = {
         enable = true;
         plugins = [
@@ -84,10 +83,22 @@
     };
   };
 
+  programs.neovim = {
+    enable = true;
+    extraConfig = ''
+      set runtimepath+=~/.vim,~/.vim/after
+      set packpath+=~/.vim
+      source ~/.vimrc
+    '';
+  };
+
   home.sessionVariables = {
     EDITOR = "nvim";
   };
-
+  
+  home.file = {
+    ".bash_aliases".source = ./dotfiles/.bash_aliases;
+  };
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new home Manager release introduces backwards
