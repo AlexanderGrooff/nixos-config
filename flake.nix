@@ -14,6 +14,11 @@
         # Import the previous configuration.nix we used,
         # so the old configuration file still takes effect
         ./configuration.nix
+
+        ./desktop.nix
+        ./networking.nix
+        ./system.nix
+        ./users.nix
       ];
     };
   };
