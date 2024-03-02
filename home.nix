@@ -27,55 +27,65 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    neofetch
-
-    # archives
-    zip
-    unzip
-
-    # utils
-    ripgrep # recursively searches directories for a regex pattern
-    jq # A lightweight and flexible command-line JSON processor
-    yq-go # yaml processer https://github.com/mikefarah/yq
-    fzf # A command-line fuzzy finder
-
-    # networking tools
-    mtr # A network diagnostic tool
-    iperf3
+    calc
+    direnv
     dnsutils  # `dig` + `nslookup`
-    nmap # A utility for network discovery and security auditing
-
-    # misc
     file
-    which
-    tree
+    fzf
+    github-cli
     gnupg
-
-    # nix related
-    #
-    # it provides the command `nom` works just like `nix`
-    # with more details log output
-    nix-output-monitor
-
-    iotop # io monitoring
-    iftop # network monitoring
-
-    # system call monitoring
-    strace # system call monitoring
-    ltrace # library call monitoring
-    lsof # list open files
-
-    # system tools
+    htop
+    iftop
+    inetutils  # telnet
+    inotify-tools
+    iotop
+    iperf3
+    jq
     lm_sensors # for `sensors` command
+    lshw
+    lsof
+    ltrace # library call monitoring
+    mtr
+    ncdu
+    neofetch
+    neovim
+    nix-direnv
+    nix-output-monitor
+    nmap
     pciutils # lspci
+    podman
+    ripgrep
+    rsync
+    strace
+    tmux
+    tree
+    unzip
     usbutils # lsusb
+    which
+    yq-go
+    zip
   ];
 
-  # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
     userName = "Alexander Grooff";
     userEmail = "alexandergrooff@gmail.com";
+  };
+
+  programs.zsh = {
+    enable = true;
+    initExtra = builtins.readFile ./.zshrc;
+    oh-my-zsh = {
+        enable = true;
+        plugins = [
+            "git"
+        ];
+        theme = "agnoster";
+    };
+  };
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
   };
 
   # This value determines the home Manager release that your

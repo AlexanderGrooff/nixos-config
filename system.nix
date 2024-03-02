@@ -4,10 +4,20 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    curl
     git
+    neovim
     vim
-    wget
+    zsh
   ];
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+  };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 

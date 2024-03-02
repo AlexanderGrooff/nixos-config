@@ -11,6 +11,7 @@
     openssh.authorizedKeys.keys = [
        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB2i1srHbCBbdwpOaUpgZIuS29KqvX+ctlBUYmL68//R alex"
     ];
+    shell = pkgs.zsh;
   };
 
   security.sudo.extraRules= [
