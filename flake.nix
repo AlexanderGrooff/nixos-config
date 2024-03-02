@@ -11,10 +11,10 @@
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
-        # Import the previous configuration.nix we used,
-        # so the old configuration file still takes effect
-        ./configuration.nix
+        # Include the results of the hardware scan.
+        ./hosts/vm2/hardware-configuration.nix
 
+        ./boot.nix
         ./desktop.nix
         ./networking.nix
         ./system.nix
