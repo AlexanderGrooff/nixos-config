@@ -85,11 +85,6 @@
 
   programs.neovim = {
     enable = true;
-    extraConfig = ''
-      set runtimepath+=~/.vim,~/.vim/after
-      set packpath+=~/.vim
-      source ~/.vimrc
-    '';
   };
 
   home.sessionVariables = {

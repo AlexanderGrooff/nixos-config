@@ -23,7 +23,6 @@
         # Include the results of the hardware scan.
         ./hosts/vm2
 
-        ./boot.nix
         ./desktop.nix
         ./networking.nix
         ./system.nix
