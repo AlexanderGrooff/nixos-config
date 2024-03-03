@@ -13,12 +13,13 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    astronvim = { url = "github:AstroNvim/AstroNvim/v3.44.0"; flake = false; };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, ... }@attrs: {
     nixosConfigurations.vm2 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
+      specialArgs = { inherit attrs; };
       modules = [
         # Include the results of the hardware scan.
         ./hosts/vm2
@@ -32,6 +33,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.alex = import ./home.nix;
+          home-manager.extraSpecialArgs = attrs;
         }
       ];
     };

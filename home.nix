@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, astronvim, ... }:
 
 {
   home.username = "alex";
@@ -80,6 +80,17 @@
             "git"
         ];
         theme = "agnoster";
+    };
+  };
+
+  xdg.configFile = {
+    astronvim = {
+      onChange = "PATH=$PATH:${pkgs.git}/bin ${pkgs.neovim}/bin/nvim --headless +quitall";
+      source = ./dotfiles/nvim;
+    };
+    nvim = {
+      onChange = "PATH=$PATH:${pkgs.git}/bin ${pkgs.neovim}/bin/nvim --headless +quitall";
+      source = astronvim;
     };
   };
 
