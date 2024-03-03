@@ -16,10 +16,34 @@
   boot.initrd.kernelModules = [];
   boot.kernelModules = [];
   boot.extraModulePackages = [];
-
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/fb65ef6f-05db-4a98-9fb9-a35076384872";
+    device = "/dev/disk/by-uuid/7c215121-32db-4138-87f0-097a4520d9ec";
     fsType = "btrfs";
+    options = ["subvol=root"];
+  };
+
+  fileSystems."/etc" = {
+    device = "/dev/disk/by-uuid/7c215121-32db-4138-87f0-097a4520d9ec";
+    fsType = "btrfs";
+    options = ["subvol=etc"];
+  };
+
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-uuid/7c215121-32db-4138-87f0-097a4520d9ec";
+    fsType = "btrfs";
+    options = ["subvol=nix"];
+  };
+
+  fileSystems."/var/log" = {
+    device = "/dev/disk/by-uuid/7c215121-32db-4138-87f0-097a4520d9ec";
+    fsType = "btrfs";
+    options = ["subvol=log"];
+  };
+
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/7c215121-32db-4138-87f0-097a4520d9ec";
+    fsType = "btrfs";
+    options = ["subvol=home"];
   };
 
   swapDevices = [];
