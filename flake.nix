@@ -32,6 +32,7 @@
         # Include the results of the hardware scan.
         ./hosts/vm2
 
+        ./btrfs.nix
         ./desktop.nix
         ./networking.nix
         ./system.nix
