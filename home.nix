@@ -1,6 +1,9 @@
-{ config, pkgs, astronvim, ... }:
-
 {
+  config,
+  pkgs,
+  astronvim,
+  ...
+}: {
   home.username = "alex";
   home.homeDirectory = "/home/alex";
 
@@ -27,16 +30,17 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
+    alejandra
     calc
     direnv
-    dnsutils  # `dig` + `nslookup`
+    dnsutils # `dig` + `nslookup`
     file
     fzf
     github-cli
     gnupg
     htop
     iftop
-    inetutils  # telnet
+    inetutils # telnet
     inotify-tools
     iotop
     iperf3
@@ -75,11 +79,11 @@
     enable = true;
     initExtra = builtins.readFile ./dotfiles/.zshrc;
     oh-my-zsh = {
-        enable = true;
-        plugins = [
-            "git"
-        ];
-        theme = "agnoster";
+      enable = true;
+      plugins = [
+        "git"
+      ];
+      theme = "agnoster";
     };
   };
 
@@ -101,7 +105,7 @@
   home.sessionVariables = {
     EDITOR = "nvim";
   };
-  
+
   home.file = {
     ".bash_aliases".source = ./dotfiles/.bash_aliases;
   };

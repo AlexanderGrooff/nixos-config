@@ -1,6 +1,8 @@
-
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   networking.hostName = "vm2";
 }
