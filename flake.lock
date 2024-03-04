@@ -20,11 +20,11 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1708977443,
-        "narHash": "sha256-UPG0uKalyl81C59WD1TVPOMW3s1onqPmZLPagXvE11U=",
+        "lastModified": 1709582055,
+        "narHash": "sha256-f2SKc1MT4wUqvbPTFGe4jR5NvlckZzK4cXZZEY+uxVM=",
         "owner": "AlexanderGrooff",
         "repo": "dotfiles",
-        "rev": "eb24d7dde721f1ac67f30f91700c38642bce477a",
+        "rev": "2808d6bc8f5e7620fb3fff04e10a902cbd3d2029",
         "type": "github"
       },
       "original": {

@@ -80,6 +80,16 @@
     enable = true;
   };
 
+  programs.tmux = {
+    enable = true;
+    extraConfig = builtins.readFile "${dotfiles}/.tmux.conf";
+    plugins = with pkgs; [
+      tmuxPlugins.yank
+      tmuxPlugins.open
+      tmuxPlugins.prefix-highlight
+    ];
+  };
+
   xdg.configFile = {
     astronvim = {
       onChange = "PATH=$PATH:${pkgs.git}/bin ${pkgs.neovim}/bin/nvim --headless +quitall";
