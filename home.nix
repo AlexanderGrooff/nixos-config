@@ -22,6 +22,7 @@
     dnsutils # `dig` + `nslookup`
     file
     fzf
+    gcc
     github-cli
     gnupg
     htop
@@ -57,8 +58,8 @@
 
   programs.git = {
     enable = true;
-    userName = "Alexander Grooff";
-    userEmail = "alexandergrooff@gmail.com";
+    # They are deprecating string input in extraConfig so I'm forced to do it like this
+    includes = [{path = "${dotfiles}/.gitconfig";}];
   };
 
   programs.zsh = {
@@ -96,6 +97,7 @@
 
   home.file = {
     ".bash_aliases".source = "${dotfiles}/.bash_aliases";
+    ".gitignore_global".source = "${dotfiles}/.gitignore_global";
   };
 
   # This value determines the home Manager release that your
