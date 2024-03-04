@@ -3,7 +3,7 @@
 set -e
 set -x
 
-nix run github:kamadorueda/alejandra -- .
+nix run github:kamadorueda/alejandra/3.0.0 -- .
 nix flake check
 git add .
 rsync -rd --rsync-path="sudo rsync" --chown=root:root "${PWD}/" alex@10.0.0.63:/etc/nixos

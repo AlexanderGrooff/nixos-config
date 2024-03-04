@@ -17,6 +17,22 @@
         "type": "github"
       }
     },
+    "dotfiles": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1708977443,
+        "narHash": "sha256-UPG0uKalyl81C59WD1TVPOMW3s1onqPmZLPagXvE11U=",
+        "owner": "AlexanderGrooff",
+        "repo": "dotfiles",
+        "rev": "eb24d7dde721f1ac67f30f91700c38642bce477a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AlexanderGrooff",
+        "repo": "dotfiles",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -57,6 +73,7 @@
     "root": {
       "inputs": {
         "astronvim": "astronvim",
+        "dotfiles": "dotfiles",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs"
       }

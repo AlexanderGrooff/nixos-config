@@ -17,6 +17,10 @@
       url = "github:AstroNvim/AstroNvim/v3.44.0";
       flake = false;
     };
+    dotfiles = {
+      url = "github:AlexanderGrooff/dotfiles";
+      flake = false;
+    };
   };
 
   outputs = {

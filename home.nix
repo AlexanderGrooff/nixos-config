@@ -2,25 +2,11 @@
   config,
   pkgs,
   astronvim,
+  dotfiles,
   ...
 }: {
   home.username = "alex";
   home.homeDirectory = "/home/alex";
-
-  # link the configuration file in current directory to the specified location in home directory
-  # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
-
-  # link all files in `./scripts` to `~/.config/i3/scripts`
-  # home.file.".config/i3/scripts" = {
-  #   source = ./scripts;
-  #   recursive = true;   # link recursively
-  #   executable = true;  # make all files executable
-  # };
-
-  # encode the file content in nix configuration file directly
-  # home.file.".xxx".text = ''
-  #     xxx
-  # '';
 
   # set cursor size and dpi for 4k monitor
   xresources.properties = {
@@ -77,12 +63,9 @@
 
   programs.zsh = {
     enable = true;
-    initExtra = builtins.readFile ./dotfiles/.zshrc;
+    initExtra = builtins.readFile "${dotfiles}/.zshrc";
     oh-my-zsh = {
       enable = true;
-      plugins = [
-        "git"
-      ];
       theme = "agnoster";
     };
   };
@@ -99,7 +82,7 @@
   xdg.configFile = {
     astronvim = {
       onChange = "PATH=$PATH:${pkgs.git}/bin ${pkgs.neovim}/bin/nvim --headless +quitall";
-      source = ./dotfiles/nvim;
+      source = "${dotfiles}/.config/nvim";
     };
     nvim = {
       onChange = "PATH=$PATH:${pkgs.git}/bin ${pkgs.neovim}/bin/nvim --headless +quitall";
@@ -112,8 +95,9 @@
   };
 
   home.file = {
-    ".bash_aliases".source = ./dotfiles/.bash_aliases;
+    ".bash_aliases".source = "${dotfiles}/.bash_aliases";
   };
+
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new home Manager release introduces backwards
