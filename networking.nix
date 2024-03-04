@@ -24,7 +24,12 @@
     settings = {
       PasswordAuthentication = false;
       PermitRootLogin = "no";
+      PubkeyAuthentication = "no";
     };
+    extraConfig = ''
+      Match User alex Address 100.64.0.0/10,10.0.0.0/24
+        PubkeyAuthentication yes
+    '';
   };
 
   services.tailscale.enable = true;
