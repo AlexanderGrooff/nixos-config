@@ -87,6 +87,15 @@
     };
   };
 
+  programs.ssh = {
+    enable = true;
+    includes = ["~/.ssh/config.d/*"];
+  };
+
+  programs.neovim = {
+    enable = true;
+  };
+
   xdg.configFile = {
     astronvim = {
       onChange = "PATH=$PATH:${pkgs.git}/bin ${pkgs.neovim}/bin/nvim --headless +quitall";
@@ -96,10 +105,6 @@
       onChange = "PATH=$PATH:${pkgs.git}/bin ${pkgs.neovim}/bin/nvim --headless +quitall";
       source = astronvim;
     };
-  };
-
-  programs.neovim = {
-    enable = true;
   };
 
   home.sessionVariables = {
