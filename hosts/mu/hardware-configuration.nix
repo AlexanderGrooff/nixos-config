@@ -9,41 +9,41 @@
   ...
 }: {
   imports = [
-    (modulesPath + "/profiles/qemu-guest.nix")
+    (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = ["ata_piix" "uhci_hcd" "virtio_pci" "virtio_scsi" "sd_mod" "sr_mod"];
+  boot.initrd.availableKernelModules = ["xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" "sdhci_pci"];
   boot.initrd.kernelModules = [];
-  boot.kernelModules = [];
+  boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
+
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/7c215121-32db-4138-87f0-097a4520d9ec";
+    device = "/dev/disk/by-uuid/7de7d57a-38f3-4429-8d95-4b3f349449c5";
     fsType = "btrfs";
-    options = ["subvol=root"];
+    options = ["subvol=@root"];
   };
 
-  fileSystems."/etc" = {
-    device = "/dev/disk/by-uuid/7c215121-32db-4138-87f0-097a4520d9ec";
-    fsType = "btrfs";
-    options = ["subvol=etc"];
-  };
-
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/7c215121-32db-4138-87f0-097a4520d9ec";
-    fsType = "btrfs";
-    options = ["subvol=nix"];
-  };
-
-  fileSystems."/var/log" = {
-    device = "/dev/disk/by-uuid/7c215121-32db-4138-87f0-097a4520d9ec";
-    fsType = "btrfs";
-    options = ["subvol=log"];
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/BA5B-BBE5";
+    fsType = "vfat";
   };
 
   fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/7c215121-32db-4138-87f0-097a4520d9ec";
+    device = "/dev/disk/by-uuid/7de7d57a-38f3-4429-8d95-4b3f349449c5";
     fsType = "btrfs";
-    options = ["subvol=home"];
+    options = ["subvol=@home"];
+  };
+
+  fileSystems."/var/log" = {
+    device = "/dev/disk/by-uuid/7de7d57a-38f3-4429-8d95-4b3f349449c5";
+    fsType = "btrfs";
+    options = ["subvol=@log"];
+  };
+
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-uuid/7de7d57a-38f3-4429-8d95-4b3f349449c5";
+    fsType = "btrfs";
+    options = ["subvol=@nix"];
   };
 
   swapDevices = [];
@@ -53,7 +53,8 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.ens18.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

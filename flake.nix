@@ -21,6 +21,7 @@
       url = "github:AlexanderGrooff/dotfiles";
       flake = false;
     };
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = {
@@ -31,7 +32,7 @@
   } @ attrs: {
     nixosConfigurations.vm2 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {inherit attrs;};
+      specialArgs = attrs;
       modules = [
         # Include the results of the hardware scan.
         ./hosts/vm2
@@ -45,14 +46,18 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.alex = import ./home.nix;
+          home-manager.users.alex = {...}: {
+            imports = [
+              ./home/common.nix
+            ];
+          };
           home-manager.extraSpecialArgs = attrs;
         }
       ];
     };
     nixosConfigurations.mu = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = {inherit attrs;};
+      specialArgs = attrs;
       modules = [
         # Include the results of the hardware scan.
         ./hosts/mu
@@ -67,7 +72,12 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.alex = import ./home.nix;
+          home-manager.users.alex = {...}: {
+            imports = [
+              ./home/common.nix
+              ./home/desktop.nix
+            ];
+          };
           home-manager.extraSpecialArgs = attrs;
         }
       ];
