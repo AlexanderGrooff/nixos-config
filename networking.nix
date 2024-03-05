@@ -32,7 +32,17 @@
     '';
   };
 
-  services.tailscale.enable = true;
+  networking.firewall = {
+    trustedInterfaces = ["tailscale0"];
+    # required to connect to Tailscale exit nodes
+    checkReversePath = "loose";
+  };
+
+  # inter-machine VPN
+  services.tailscale = {
+    enable = true;
+    openFirewall = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

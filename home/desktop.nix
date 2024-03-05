@@ -9,7 +9,7 @@
   home.packages = with pkgs; [
     alacritty
     firefox
-    vscode
+    vscode-fhs
     waybar
     wofi
     xdg-desktop-portal-hyprland
