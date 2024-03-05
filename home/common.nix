@@ -41,6 +41,7 @@
     ripgrep
     rsync
     strace
+    syncthing
     tmux
     tree
     unzip
@@ -82,6 +83,11 @@
       tmuxPlugins.open
       tmuxPlugins.prefix-highlight
     ];
+  };
+
+  services.syncthing = {
+    enable = true;
+    tray.enable = true;
   };
 
   xdg.configFile = {
