@@ -4,22 +4,19 @@
   pkgs,
   ...
 }: {
-  services.snapper = {
-    # snapshotRootOnBoot = true;
-
-    configs = {
-      log = {
-        SUBVOLUME = "/var/log";
-        ALLOW_USERS = ["alex"];
-        TIMELINE_CREATE = true;
-        TIMELINE_CLEANUP = true;
-      };
-      home = {
-        SUBVOLUME = "/home";
-        ALLOW_USERS = ["alex"];
-        TIMELINE_CREATE = true;
-        TIMELINE_CLEANUP = true;
-      };
-    };
-  };
+  # services.btrbk.instances = {
+  #   home.settings = {
+  #     snapshot_preserve = "14d";
+  #     volume = {
+  #       "/" = {
+  #         subvolume = {
+  #           home = {
+  #             snapshot_create = "always";
+  #           };
+  #         };
+  #         target = "/backup/${config.networking.hostName}/home";
+  #       };
+  #     };
+  #   };
+  # };
 }

@@ -37,6 +37,27 @@
         ./hosts/vm2
 
         ./btrfs.nix
+        ./networking.nix
+        ./system.nix
+        ./users.nix
+
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.alex = import ./home.nix;
+          home-manager.extraSpecialArgs = attrs;
+        }
+      ];
+    };
+    nixosConfigurations.mu = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {inherit attrs;};
+      modules = [
+        # Include the results of the hardware scan.
+        ./hosts/mu
+
+        ./btrfs.nix
         ./desktop.nix
         ./networking.nix
         ./system.nix
