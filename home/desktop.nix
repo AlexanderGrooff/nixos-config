@@ -3,8 +3,12 @@
   pkgs,
   astronvim,
   dotfiles,
+  unstable,
   ...
-}: {
+}:
+let
+  unstable = unstable.legacyPackages.${pkgs.system};
+in {
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     alacritty
@@ -32,6 +36,13 @@
     enable = true;
     settings = {
       color = "000000";
+    };
+  };
+
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      shell = { program = "tmux"; };
     };
   };
 
