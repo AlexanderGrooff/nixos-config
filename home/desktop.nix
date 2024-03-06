@@ -42,6 +42,12 @@
 
   services.blueman-applet.enable = true;
 
+  services.mako = {
+    enable = true;
+    anchor = "top-right";
+    defaultTimeout = 3;
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = ''
