@@ -67,6 +67,7 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  xdg.autostart.enable = true;
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
@@ -83,6 +84,7 @@
   programs.hyprland = {
     enable = true;
     package = hyprland.packages.${pkgs.system}.hyprland;
+
   };
 
   programs._1password.enable = true;

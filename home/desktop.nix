@@ -9,6 +9,7 @@
   home.packages = with pkgs; [
     alacritty
     firefox
+    slack
     vscode-fhs
     waybar
     wofi
@@ -48,7 +49,7 @@
       # env = XCURSOR_SIZE,24
 
       # Nvidia tweaks
-      # env = XDG_SESSION_TYPE,wayland
+      env = XDG_SESSION_TYPE,wayland
       # env = WLR_NO_HARDWARE_CURSORS,1
 
       # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
@@ -59,7 +60,7 @@
           kb_options =
           kb_rules =
 
-          follow_mouse = 1
+          follow_mouse = 0
 
           touchpad {
               natural_scroll = no
@@ -94,7 +95,7 @@
               passes = 1
           }
 
-          drop_shadow = yes
+          drop_shadow = no
           shadow_range = 4
           shadow_render_power = 3
           col.shadow = rgba(1a1a1aee)

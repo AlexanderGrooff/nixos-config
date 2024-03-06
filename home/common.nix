@@ -108,6 +108,8 @@
   home.file = {
     ".bash_aliases".source = "${dotfiles}/.bash_aliases";
     ".gitignore_global".source = "${dotfiles}/.gitignore_global";
+    "bin".source = "${dotfiles}/bin";
+    "scripts".source = "${dotfiles}/scripts";
   };
 
   # This value determines the home Manager release that your
