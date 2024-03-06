@@ -80,6 +80,9 @@
       pkgs.xdg-desktop-portal-gtk
     ];
   };
+  # Allow swaylock to be used by users. Enabled if you use sway,
+  # but not for other compositors
+  security.pam.services.swaylock = {};
 
   programs.hyprland = {
     enable = true;

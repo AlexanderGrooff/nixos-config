@@ -10,6 +10,8 @@
     alacritty
     firefox
     slack
+    spotify
+    swaylock
     vscode-fhs
     waybar
     wofi
@@ -23,6 +25,13 @@
 
   programs.wofi = {
     enable = true;
+  };
+
+  programs.swaylock = {
+    enable = true;
+    settings = {
+      color = "000000";
+    };
   };
 
   xdg.configFile = {
