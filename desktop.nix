@@ -62,6 +62,11 @@
     enable = true;
     audio.enable = true;
     wireplumber.enable = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
+    pulse.enable = true;
   };
 
   hardware.bluetooth.enable = true;
