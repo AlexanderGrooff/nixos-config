@@ -9,6 +9,7 @@
   home.packages = with pkgs; [
     alacritty
     firefox
+    helvum
     slack
     spotify
     swaylock
