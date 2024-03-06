@@ -39,6 +39,8 @@
     waybar.source = "${dotfiles}/.config/waybar";
   };
 
+  services.blueman-applet.enable = true;
+
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = ''

@@ -64,8 +64,9 @@
     wireplumber.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  services.blueman.enable = true;
 
   xdg.autostart.enable = true;
   xdg.portal = {
@@ -80,6 +81,7 @@
       pkgs.xdg-desktop-portal-gtk
     ];
   };
+
   # Allow swaylock to be used by users. Enabled if you use sway,
   # but not for other compositors
   security.pam.services.swaylock = {};
