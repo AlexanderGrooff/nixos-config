@@ -7,13 +7,14 @@
   ...
 }:
 let
-  unstable = unstable.legacyPackages.${pkgs.system};
+  unstablepkgs = unstable.legacyPackages.${pkgs.system};
 in {
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     alacritty
     firefox
     helvum
+    obsidian
     slack
     spotify
     swaylock
@@ -21,7 +22,9 @@ in {
     waybar
     wofi
     xdg-desktop-portal-hyprland
-  ];
+  ] ++ (with unstablepkgs; [
+    # obsidian
+  ]);
 
   programs.waybar = {
     enable = true;

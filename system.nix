@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  unstable,
   ...
 }: {
   # List packages installed in system profile. To search, run:
@@ -25,7 +26,12 @@
   };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      "electron-25.9.0"  # Obsidian
+    ];
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
