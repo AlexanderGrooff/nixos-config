@@ -55,11 +55,13 @@ in {
   };
 
   services.blueman-applet.enable = true;
+  services.network-manager-applet.enable = true;
 
   services.mako = {
     enable = true;
     anchor = "top-right";
     defaultTimeout = 3;
+    ignoreTimeout = true;
   };
 
   services.gnome-keyring = {

@@ -91,6 +91,9 @@
   # but not for other compositors
   security.pam.services.swaylock = {};
 
+  # Authentication agent
+  security.polkit.enable = true;
+
   programs.hyprland = {
     enable = true;
     package = hyprland.packages.${pkgs.system}.hyprland;
