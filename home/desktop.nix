@@ -69,6 +69,27 @@ in {
     components = [ "pkcs11" "secrets" "ssh" ];
   };
 
+  systemd = {
+    # Start authentication agent on login
+    user.services.polkit-gnome-authentication-agent = {
+      Unit = {
+        Description = "polkit-gnome-authentication-agent";
+      };
+      Install = {
+        WantedBy = [ "graphical-session.target" ];
+        Wants = [ "graphical-session.target" ];
+        After = [ "graphical-session.target" ];
+      };
+      Service = {
+          Type = "simple";
+          ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+          Restart = "on-failure";
+          RestartSec = 1;
+          TimeoutStopSec = 10;
+        };
+    };
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = ''
