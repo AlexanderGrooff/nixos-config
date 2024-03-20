@@ -36,6 +36,7 @@
     nix-direnv
     nix-output-monitor
     nmap
+    openvpn
     pciutils # lspci
     podman
     ripgrep
@@ -47,6 +48,7 @@
     unzip
     usbutils # lsusb
     which
+    wl-clipboard
     yq-go
     zip
   ];
