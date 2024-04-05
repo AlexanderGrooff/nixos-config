@@ -23,7 +23,7 @@
         "dirtyRev": "de4a72acc1b70a52cd873c69fbc5d45d03e42052-dirty",
         "dirtyShortRev": "de4a72a-dirty",
         "lastModified": 1709830896,
-        "narHash": "sha256-PGP2agCvV0b6GFFM1P4lDdmpYCjSC4iJJnnUTwZh7zc=",
+        "narHash": "sha256-OBS9ZhogrmB2JgYsVjNTObspMc+q3EU2wv3h3/xMEUU=",
         "type": "git",
         "url": "file:///home/alex/code/dotfiles"
       },

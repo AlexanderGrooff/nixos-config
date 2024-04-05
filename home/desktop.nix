@@ -13,17 +13,21 @@ in {
   home.packages = with pkgs; [
     alacritty
     firefox
+    handlr  # xdg-open alternative
     helvum
+    grimblast  # Screenshot tool
     obsidian
     slack
     spotify
     swaylock
+    xfce.thunar
     vscode-fhs
     waybar
     wofi
     xdg-desktop-portal-hyprland
   ] ++ (with unstablepkgs; [
     # obsidian
+    # vscode-fhs
   ]);
 
   programs.waybar = {
@@ -217,7 +221,7 @@ in {
       bind = $mainMod, D, exec, wofi --show drun
       bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod SHIFT, P, exec, swaylock
-      bind = $mainMod SHIFT, S, exec, grimshot copy area
+      bind = $mainMod SHIFT, S, exec, grimblast copy area
       # bind = $mainMod, J, togglesplit, # dwindle
       bind = $mainMod, F, fullscreen,
 

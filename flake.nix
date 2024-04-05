@@ -19,8 +19,8 @@
       flake = false;
     };
     dotfiles = {
-      #url = "git+file:///home/alex/code/dotfiles";
-      url = "github:AlexanderGrooff/dotfiles";
+      url = "git+file:///home/alex/code/dotfiles";
+      #url = "github:AlexanderGrooff/dotfiles";
       flake = false;
     };
     hyprland.url = "github:hyprwm/Hyprland";
@@ -30,8 +30,12 @@
     self,
     nixpkgs,
     home-manager,
+    unstable,
     ...
   } @ attrs: {
+    unstable.config = {
+      allowUnfree = true;
+    };
     nixosConfigurations.vm2 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = attrs;
