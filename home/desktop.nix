@@ -222,6 +222,7 @@ in {
       bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod SHIFT, P, exec, swaylock
       bind = $mainMod SHIFT, S, exec, grimblast copy area
+      bind = $mainMod SHIFT, F, exec, grimblast copy active
       # bind = $mainMod, J, togglesplit, # dwindle
       bind = $mainMod, F, fullscreen,
 
