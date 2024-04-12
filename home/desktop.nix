@@ -5,31 +5,32 @@
   dotfiles,
   unstable,
   ...
-}:
-let
+}: let
   unstablepkgs = unstable.legacyPackages.${pkgs.system};
 in {
   # Packages that should be installed to the user profile.
-  home.packages = with pkgs; [
-    alacritty
-    firefox
-    handlr  # xdg-open alternative
-    helvum
-    grimblast  # Screenshot tool
-    libreoffice
-    obsidian
-    slack
-    spotify
-    swaylock
-    xfce.thunar
-    vscode-fhs
-    waybar
-    wofi
-    xdg-desktop-portal-hyprland
-  ] ++ (with unstablepkgs; [
-    # obsidian
-    # vscode-fhs
-  ]);
+  home.packages = with pkgs;
+    [
+      alacritty
+      firefox
+      handlr # xdg-open alternative
+      helvum
+      grimblast # Screenshot tool
+      libreoffice
+      obsidian
+      slack
+      spotify
+      swaylock
+      xfce.thunar
+      vscode-fhs
+      waybar
+      wofi
+      xdg-desktop-portal-hyprland
+    ]
+    ++ (with unstablepkgs; [
+      # obsidian
+      # vscode-fhs
+    ]);
 
   programs.waybar = {
     enable = true;
@@ -50,7 +51,7 @@ in {
   programs.alacritty = {
     enable = true;
     settings = {
-      shell = { program = "tmux"; };
+      shell = {program = "tmux";};
     };
   };
 
@@ -71,7 +72,7 @@ in {
 
   services.gnome-keyring = {
     enable = true;
-    components = [ "pkcs11" "secrets" "ssh" ];
+    components = ["pkcs11" "secrets" "ssh"];
   };
 
   systemd = {
@@ -81,17 +82,17 @@ in {
         Description = "polkit-gnome-authentication-agent";
       };
       Install = {
-        WantedBy = [ "graphical-session.target" ];
-        Wants = [ "graphical-session.target" ];
-        After = [ "graphical-session.target" ];
+        WantedBy = ["graphical-session.target"];
+        Wants = ["graphical-session.target"];
+        After = ["graphical-session.target"];
       };
       Service = {
-          Type = "simple";
-          ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-          Restart = "on-failure";
-          RestartSec = 1;
-          TimeoutStopSec = 10;
-        };
+        Type = "simple";
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
     };
   };
 
