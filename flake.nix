@@ -43,10 +43,10 @@
         # Include the results of the hardware scan.
         ./hosts/vm2
 
-        ./btrfs.nix
-        ./networking.nix
-        ./system.nix
-        ./users.nix
+        ./system/btrfs.nix
+        ./system/networking.nix
+        ./system/system.nix
+        ./system/users.nix
 
         home-manager.nixosModules.home-manager
         {
@@ -68,11 +68,11 @@
         # Include the results of the hardware scan.
         ./hosts/mu
 
-        ./btrfs.nix
-        ./desktop.nix
-        ./networking.nix
-        ./system.nix
-        ./users.nix
+        ./system/btrfs.nix
+        ./system/desktop.nix
+        ./system/networking.nix
+        ./system/system.nix
+        ./system/users.nix
 
         home-manager.nixosModules.home-manager
         {
