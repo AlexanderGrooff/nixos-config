@@ -5,22 +5,13 @@
   dotfiles,
   ...
 }: {
-  home.username = "alex";
-  home.homeDirectory = "/home/alex";
-
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     alejandra
     calc
-    direnv
     dnsutils # `dig` + `nslookup`
-    docker-compose
-    file
     fzf
-    gcc
-    github-cli
     gnupg
-    htop
     iftop
     inetutils # telnet
     inotify-tools
@@ -28,32 +19,14 @@
     iperf3
     jq
     lm_sensors # for `sensors` command
-    lshw
     lsof
     ltrace # library call monitoring
-    mtr
-    ncdu
     neofetch
-    nix-direnv
-    nix-output-monitor
-    nmap
     openssl
-    openvpn
-    pciutils # lspci
-    podman
-    poetry
     ripgrep
-    rsync
     strace
-    syncthing
     tmux
-    tree
-    unzip
-    usbutils # lsusb
-    which
-    wl-clipboard
     yq-go
-    zip
   ];
 
   programs.git = {
@@ -90,11 +63,6 @@
     ];
   };
 
-  services.syncthing = {
-    enable = true;
-    tray.enable = true;
-  };
-
   xdg.configFile = {
     astronvim = {
       onChange = "PATH=$PATH:${pkgs.git}/bin ${pkgs.neovim}/bin/nvim --headless +quitall";
@@ -116,17 +84,4 @@
     "bin".source = "${dotfiles}/bin";
     "scripts".source = "${dotfiles}/scripts";
   };
-
-  # This value determines the home Manager release that your
-  # configuration is compatible with. This helps avoid breakage
-  # when a new home Manager release introduces backwards
-  # incompatible changes.
-  #
-  # You can update home Manager without changing this value. See
-  # the home Manager release notes for a list of state version
-  # changes in each release.
-  home.stateVersion = "23.11";
-
-  # Let home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }

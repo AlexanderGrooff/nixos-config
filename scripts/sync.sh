@@ -6,7 +6,11 @@ set -x
 # Get TARGET and HOSTNAME from the environment
 HOSTNAME=${HOSTNAME:-$(hostname)}
 
-nix run github:kamadorueda/alejandra/3.0.0 -- .
+if [[ $(command -v alejandra) ]]; then
+    alejandra .
+else
+    nix run github:kamadorueda/alejandra/3.0.0 -- .
+fi
 git add .
 nix flake check
 

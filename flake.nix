@@ -54,7 +54,9 @@
           home-manager.useUserPackages = true;
           home-manager.users.alex = {...}: {
             imports = [
+              ./home/barebones.nix
               ./home/common.nix
+              ./home/dev.nix
             ];
           };
           home-manager.extraSpecialArgs = attrs;
@@ -80,7 +82,9 @@
           home-manager.useUserPackages = true;
           home-manager.users.alex = {...}: {
             imports = [
+              ./home/barebones.nix
               ./home/common.nix
+              ./home/dev.nix
               ./home/desktop.nix
             ];
           };

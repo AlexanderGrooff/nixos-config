@@ -24,6 +24,7 @@ in {
       xfce.thunar
       vscode-fhs
       waybar
+      wl-clipboard
       wofi
       xdg-desktop-portal-hyprland
     ]
