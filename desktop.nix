@@ -71,6 +71,8 @@
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  # Set up initial connection to Airpods
+  hardware.bluetooth.settings = { General = { ControllerMode = "bredr"; }; };
   services.blueman.enable = true;
 
   xdg.autostart.enable = true;

@@ -16,6 +16,7 @@ in {
     handlr  # xdg-open alternative
     helvum
     grimblast  # Screenshot tool
+    libreoffice
     obsidian
     slack
     spotify

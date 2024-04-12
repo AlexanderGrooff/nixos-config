@@ -14,6 +14,7 @@
     calc
     direnv
     dnsutils # `dig` + `nslookup`
+    docker-compose
     file
     fzf
     gcc
@@ -36,9 +37,11 @@
     nix-direnv
     nix-output-monitor
     nmap
+    openssl
     openvpn
     pciutils # lspci
     podman
+    poetry
     ripgrep
     rsync
     strace
