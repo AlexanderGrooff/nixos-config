@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  astronvim,
   dotfiles,
   ...
 }: {

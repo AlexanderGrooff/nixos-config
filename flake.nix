@@ -15,7 +15,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     astronvim = {
-      url = "github:AstroNvim/AstroNvim/v3.44.0";
+      url = "github:AlexanderGrooff/astronvim";
       flake = false;
     };
     dotfiles = {
