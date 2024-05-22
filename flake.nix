@@ -19,11 +19,10 @@
       flake = false;
     };
     dotfiles = {
-      url = "git+file:///home/alex/code/dotfiles";
-      #url = "github:AlexanderGrooff/dotfiles";
+      #url = "git+file:///home/alex/code/dotfiles";
+      url = "github:AlexanderGrooff/dotfiles";
       flake = false;
     };
-    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = {

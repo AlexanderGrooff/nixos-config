@@ -21,5 +21,5 @@ if [ -z "$TARGET" ]; then
 else
     rsync -rd --rsync-path="sudo rsync" --chown=root:root "${PWD}/" $TARGET:/etc/nixos
     ssh $TARGET sudo nixos-rebuild switch --flake "/etc/nixos/#$HOSTNAME"
-    ssh bash /etc/nixos/scripts/cleanup.sh
+    ssh $TARGET bash /etc/nixos/scripts/cleanup.sh
 fi

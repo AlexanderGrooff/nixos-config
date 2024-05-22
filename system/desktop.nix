@@ -98,7 +98,7 @@
 
   programs.hyprland = {
     enable = true;
-    package = hyprland.packages.${pkgs.system}.hyprland;
+    # package = hyprland.packages.${pkgs.system}.hyprland;
   };
 
   programs._1password.enable = true;

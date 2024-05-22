@@ -12,6 +12,7 @@ in {
   home.packages = with pkgs;
     [
       alacritty
+      btrfs-assistant
       firefox
       handlr # xdg-open alternative
       helvum
