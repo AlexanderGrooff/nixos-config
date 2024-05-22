@@ -32,9 +32,6 @@
     unstable,
     ...
   } @ attrs: {
-    unstable.config = {
-      allowUnfree = true;
-    };
     nixosConfigurations.vm2 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = attrs;

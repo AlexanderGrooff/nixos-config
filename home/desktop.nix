@@ -9,8 +9,8 @@
   unstablepkgs = unstable.legacyPackages.${pkgs.system};
 in {
   # Packages that should be installed to the user profile.
-  home.packages = with pkgs;
-    [
+  home.packages =
+    (with pkgs; [
       alacritty
       btrfs-assistant
       firefox
@@ -28,7 +28,7 @@ in {
       wl-clipboard
       wofi
       xdg-desktop-portal-hyprland
-    ]
+    ])
     ++ (with unstablepkgs; [
       # obsidian
       # vscode-fhs

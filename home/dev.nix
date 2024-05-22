@@ -5,9 +5,11 @@
   dotfiles,
   unstable,
   ...
-}: {
-  home.packages = with pkgs;
-    [
+}: let
+  unstablepkgs = unstable.legacyPackages.${pkgs.system};
+in {
+  home.packages =
+    (with pkgs; [
       direnv
       docker-compose
       gcc
@@ -18,8 +20,8 @@
       podman
       poetry
       syncthing
-    ]
-    ++ (with unstable; [
+    ])
+    ++ (with unstablepkgs; [
       podman-compose
     ]);
 
