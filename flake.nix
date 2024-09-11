@@ -14,10 +14,6 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    astronvim = {
-      url = "github:AlexanderGrooff/astronvim";
-      flake = false;
-    };
     dotfiles = {
       #url = "git+file:///home/alex/code/dotfiles";
       url = "github:AlexanderGrooff/dotfiles";

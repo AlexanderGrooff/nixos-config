@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  astronvim,
   dotfiles,
   ...
 }: {
@@ -64,10 +63,10 @@
   };
 
   xdg.configFile = {
-    nvim = {
-      onChange = "PATH=$PATH:${pkgs.git}/bin ${pkgs.neovim}/bin/nvim --headless +quitall";
-      source = astronvim;
-    };
+    # nvim = {
+    #   onChange = "PATH=$PATH:${pkgs.git}/bin ${pkgs.neovim}/bin/nvim --headless +quitall";
+    #   source = astronvim;
+    # };
   };
 
   home.sessionVariables = {
