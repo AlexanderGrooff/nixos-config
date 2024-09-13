@@ -28,12 +28,12 @@
     unstable,
     ...
   } @ attrs: {
-    nixosConfigurations.vm2 = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.vm1 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = attrs;
       modules = [
         # Include the results of the hardware scan.
-        ./hosts/vm2
+        ./hosts/vm1
 
         ./system/btrfs.nix
         ./system/networking.nix
