@@ -51,6 +51,7 @@ vim /mnt/etc/nixos/flake.nix
 
 cd /mnt/etc/nixos
 nix-shell -p git
+
 git add .
 nixos-install --flake "/mnt/etc/nixos#$HOSTNAME_TO_INSTALL"
 exit
